@@ -74,6 +74,11 @@ print(' '.join(guessed_letters))
 guesses=[]
 
 scenario_count = 0
+GameIsDone = False
+def PlayAgain():
+    play_again = input("Do you want to play again?")
+    return play_again.lower
+
 while True:
 
     guessed_word=''
@@ -89,23 +94,47 @@ while True:
     
     if(correct_answer == True):
         print('You found ' + str(correct_letter_count) + " correct letters in the word!")
+        print(' '.join(guessed_letters))
+
     else:
-        print(scenarios[scenario_count])
-        scenario_count+=1
         if(scenario_count==6):
             GameIsDone = True
         else:
+            print(scenarios[scenario_count])
+            scenario_count+=1
+            print(' '.join(guessed_letters))
             continue
-    print(' '.join(guessed_letters))
 
     for x in guessed_letters:
         guessed_word+=x
 
     if(guessed_word == random_word):
         print("YOU HAVE FINISHED THE GAME GG.")
-        break
+        GameIsDone = True
     else:
         continue 
+    if GameIsDone == True:
+        if PlayAgain() == "y" or "yes":
+            guessed_correctly=0
+            random_word=words[randint(0,2)]
+            size_of_word = len(random_word)
+            guessed_letters = size_of_word * ['_']
+            guesses=[]
+            scenario_count = 0
+            print('\n')
+            print('  _____')
+            print('  |   |')
+            print('      |')
+            print('      |')
+            print('      |')
+            print(' _____|___')
+            print(' '.join(guessed_letters))
+            GameIsDone = False
+        else:
+            break
+
+
+
 
 
 
