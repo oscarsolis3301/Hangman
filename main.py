@@ -1,6 +1,6 @@
 from random import randint
 
-words=['Laptop', 'Bee', 'Phone']
+words=['laptop', 'bee', 'phone']
 
 running = True
 
@@ -23,77 +23,121 @@ print('      |')
 print(' _____|___')
 
 #scenarios bc beb is smelly <3
-def scenario_one():
-    print("That letter is not part of the word.")
-    print('  _____')
-    print('  |   |')
-    print('  O   |')
-    print('      |')
-    print('      |')
-    print(' _____|___')
+scenarios = ['''
+That letter is not part of the word.
+  _____
+  |   |
+  O   |
+      |
+      |
+ _____|___''', '''
+ That letter is not part of the word.
+  _____
+  |   |
+  O   |
+  |   |
+      |
+ _____|___''', '''
+That letter is not part of the word.
+  _____
+  |   |
+  O   |
+  |   |
+ /    |
+ _____|___''', '''
+That letter is not part of the word.
+  _____
+  |   |
+  O   |
+  |   |
+ / \  |
+ _____|___''', '''
+That letter is not part of the word.
+  _____
+  |   |
+  O   |
+ /|   |
+ / \  |
+ _____|___''', '''
+That letter is not part of the word.
+  _____
+  |   |
+  O   |
+ /|\  |
+ / \  |
+ _____|___
+You lost;( better luck next time smelly''']
 
-def scenario_two():
-    print("That letter is not part of the word.")
-    print('  _____')
-    print('  |   |')
-    print('  O   |')
-    print('  |   |')
-    print('      |')
-    print(' _____|___')
-    
-def scenario_three():
-    print("That letter is not part of the word.")
-    print('  _____')
-    print('  |   |')
-    print('  O   |')
-    print('  |   |')
-    print(' /    |')
-    print(' _____|___')
+guessed_correctly=0
+guessed_letters = size_of_word * ['_']
+print(' '.join(guessed_letters))
+guesses=[]
 
-def scenario_four():
-    print("That letter is not part of the word.")
-    print('  _____')
-    print('  |   |')
-    print('  O   |')
-    print('  |   |')
-    print(' / \  |')
-    print(' _____|___')
-
-def scenario_five():
-    print("That letter is not part of the word.")
-    print('  _____')
-    print('  |   |')
-    print('  O   |')
-    print(' /|   |')
-    print(' / \  |')
-    print(' _____|___')
-
-def scenario_six():
-    print("That letter is not part of the word.")
-    print('  _____')
-    print('  |   |')
-    print('  O   |')
-    print(' /|\  |')
-    print(' / \  |')
-    print(' _____|___')
-    print('You lost;( better luck next time smelly')
-
+scenario_count = 0
 while True:
-    for x in range(size_of_word):
-        underscores+='_ '
-    print(underscores)
 
+    guessed_word=''
+    correct_answer = False
+    correct_letter_count = 0
     user_guess=input('Please enter a letter: ')
 
-    underscores=''
     for x in range(size_of_word):
-        if user_guess==random_word[x]:
-            underscores+=str(user_guess)
-            count+=1
+        if user_guess == random_word[x]:
+            guessed_letters[x] = user_guess
+            correct_letter_count+=1
+            correct_answer = True
+    
+    if(correct_answer == True):
+        print('You found ' + str(correct_letter_count) + " correct letters in the word!")
+    else:
+        print(scenarios[scenario_count])
+        scenario_count+=1
+        if(scenario_count==6):
+            GameIsDone = True
         else:
             continue
+    print(' '.join(guessed_letters))
 
-    if(count == 0):
+    for x in guessed_letters:
+        guessed_word+=x
+
+    if(guessed_word == random_word):
+        print("YOU HAVE FINISHED THE GAME GG.")
+        break
+    else:
+        continue 
+
+
+
+# Unused Code:
+
+   # print(' '.join(guessed_letters))
+    #blanks = list('_'*size_of_word)
+    #for guess in set(random_word):
+        
+     #   blanks = [guess if letter == guess else blank for blank, letter in zip(blanks, random_word)]
+       # print(''.join(blanks))
+
+  #  if str(user_guess) in str(guesses):
+   #     print('Already guessed that')
+  #  else:
+    #     if user_guess in random_word:
+    #        output = [x if x == user_guess else "_" for x in random_word]
+    #        guesses.append(user_guess)
+     #       print(output)
+    
+    ''' for position, letter in enumerate(random_word):
+      if letter == user_guess:
+        guessed_letters[position-1] = letter'''
+
+
+    ##for x in range(size_of_word):
+      #  if user_guess==random_word[x]:
+       #     print(random_word[x])
+       #     guessed_letters.append(user_guess)
+       #     count+=1
+
+''' if(count == 0):
         if scenarios == 1:
             scenario_one()
             scenarios+=1
@@ -121,9 +165,10 @@ while True:
     else:  
         print("\nYou have found " + str(count) + " letters in the word!")
         print("Your progress so far:")
-        print(underscores)
+       # print(underscores)
         count=0
-
+        guessed_correctly+=1
+'''
 
 
 
