@@ -13,7 +13,7 @@ window.columnconfigure(0, weight=0)
 window.rowconfigure(0, weight=0)
 window.columnconfigure(1, weight=1)
 window.rowconfigure(1, weight=1)
-exit.grid(row=0, column=1, pady=100)
+exit.grid(row=0, column=1)
 continue_button.grid(row=1, column=1)
 
 # Tkinter main loop
