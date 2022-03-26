@@ -1,19 +1,17 @@
 from random import randint
-from tkinter import *
 import tkinter
 
-window = Tk(className="Hangman")
-window.geometry("200x150+400+300")
+window = tkinter.Tk(className = "ultimate hangman")
+
+window.geometry("700x500")
+
+exit = tkinter.Button(window, text="Exit", command=window.destroy)
+
+exit.grid(row=0,column=1, pady=480, padx=670)
+
+window.mainloop()
 
 
-def hello():
-    print("Hello there!")
-
-button_test = tkinter.Button(window, text="EXIT", command=window.destroy)
-button_test.pack(pady=5, side=TOP)
-
-
-window.mainloop
 words=['laptop', 'bee', 'phone']
 
 running = True
