@@ -1,23 +1,29 @@
 from random import randint
 import tkinter
 from scenarios import scenarios
+from art import *
 
-window = tkinter.Tk(className = "ultimate hangman")
+tprint(text="Hangman")
 
-window.geometry("700x500")
+# window = tkinter.Tk(className = "ultimate hangman")
 
-exit = tkinter.Button(window, text="Exit", command=window.destroy)
-continue_button = tkinter.Button(window, text="Continue", command=print(scenarios[0]))
+# window.geometry("700x500")
 
-window.columnconfigure(0, weight=0)
-window.rowconfigure(0, weight=0)
-window.columnconfigure(1, weight=1)
-window.rowconfigure(1, weight=1)
-exit.grid(row=0, column=1)
-continue_button.grid(row=1, column=1)
+# display_art = tkinter.Label(window, text=art, width=300, height=500)
+# display_art.pack()
+
+# exit = tkinter.Button(window, text="Exit", command=window.destroy)
+# continue_button = tkinter.Button(window, text="Continue", command=print(scenarios[0]))
+
+# window.columnconfigure(0, weight=0)
+# window.rowconfigure(0, weight=0)
+# window.columnconfigure(1, weight=1)
+# window.rowconfigure(1, weight=1)
+#exit.grid(row=0, column=1)
+#continue_button.grid(row=1, column=1)
 
 # Tkinter main loop
-window.mainloop()
+#window.mainloop()
 # End of Tkinter
 
 words=['laptop', 'bee', 'phone']
@@ -31,7 +37,6 @@ size_of_word=len(random_word)
 underscores=''
 
 count=0
-scenarios = 1
 
 
 print('Welcome to hangman! <3 by beb & beb')
