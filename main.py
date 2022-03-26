@@ -53,8 +53,6 @@ print(' _____|___')
 guessed_correctly=0
 guessed_letters = size_of_word * ['_']
 print(' '.join(guessed_letters))
-guesses=[]
-
 scenario_count = 0
 GameIsDone = False
 def PlayAgain():
@@ -65,9 +63,14 @@ while True:
 
     guessed_word=''
     correct_answer = False
+    found_before = False
     correct_letter_count = 0
+    guesses=['']
     user_guess=input('Please enter a letter: ')
-
+    if user_guess != guesses:
+        print('no')
+    else:
+        guesses.append(user_guess)
     for x in range(size_of_word):
         if user_guess == random_word[x]:
             guessed_letters[x] = user_guess
