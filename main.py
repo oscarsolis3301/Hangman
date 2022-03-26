@@ -1,16 +1,24 @@
 from random import randint
 import tkinter
+from scenarios import scenarios
 
 window = tkinter.Tk(className = "ultimate hangman")
 
 window.geometry("700x500")
 
 exit = tkinter.Button(window, text="Exit", command=window.destroy)
+continue_button = tkinter.Button(window, text="Continue", command=print(scenarios[0]))
 
-exit.grid(row=0,column=1, pady=480, padx=670)
+window.columnconfigure(0, weight=0)
+window.rowconfigure(0, weight=0)
+window.columnconfigure(1, weight=1)
+window.rowconfigure(1, weight=1)
+exit.grid(row=0, column=1, pady=100)
+continue_button.grid(row=1, column=1)
 
+# Tkinter main loop
 window.mainloop()
-
+# End of Tkinter
 
 words=['laptop', 'bee', 'phone']
 
@@ -35,50 +43,7 @@ print('      |')
 print(' _____|___')
 
 #scenarios bc beb is smelly <3
-scenarios = ['''
-That letter is not part of the word.
-  _____
-  |   |
-  O   |
-      |
-      |
- _____|___''', '''
- That letter is not part of the word.
-  _____
-  |   |
-  O   |
-  |   |
-      |
- _____|___''', '''
-That letter is not part of the word.
-  _____
-  |   |
-  O   |
-  |   |
- /    |
- _____|___''', '''
-That letter is not part of the word.
-  _____
-  |   |
-  O   |
-  |   |
- / \  |
- _____|___''', '''
-That letter is not part of the word.
-  _____
-  |   |
-  O   |
- /|   |
- / \  |
- _____|___''', '''
-That letter is not part of the word.
-  _____
-  |   |
-  O   |
- /|\  |
- / \  |
- _____|___
-You lost;( better luck next time smelly''']
+
 
 guessed_correctly=0
 guessed_letters = size_of_word * ['_']
