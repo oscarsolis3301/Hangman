@@ -19,7 +19,6 @@ def randomwords(random_word_api):
 
 
 
-
 tprint(text="Hangman")
 
 
@@ -52,7 +51,6 @@ def PlayAgain():
 
 guesses=[]
 while True:
-    print(f"THE RANDOM WORD IS {random_word}")
     guessed_word=''
     correct_answer = False
     found_before = False
