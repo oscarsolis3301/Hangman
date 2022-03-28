@@ -1,20 +1,32 @@
 from random import randint
-import tkinter
 from scenarios import scenarios
 from art import *
+import requests
+import json
+
+
+get_words = requests.get("https://random-word-api.herokuapp.com/word?number=10")
+
+words = []
+
+for words_list in get_words.json():
+    words.append(words_list)
+
+def randomwords(random_word_api):
+    wordlist = json.dumps(random_word_api)
+    print(wordlist[1])
+    return wordlist
+
+
+
 
 tprint(text="Hangman")
 
-words=['laptop', 'bee', 'phone']
 
 running = True
-
 random_word=words[randint(0,2)]
-
 size_of_word=len(random_word)
-
 underscores=''
-
 count=0
 
 
@@ -40,7 +52,7 @@ def PlayAgain():
 
 guesses=[]
 while True:
-
+    print(f"THE RANDOM WORD IS {random_word}")
     guessed_word=''
     correct_answer = False
     found_before = False
