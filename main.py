@@ -77,6 +77,7 @@ while True:
 
         else:
             if(scenario_count==6):
+                print(f'The word was {random_word}')
                 GameIsDone = True
             else:
                 print(scenarios[scenario_count])
@@ -92,7 +93,7 @@ while True:
             GameIsDone = True
         else:
             continue 
-    if GameIsDone == True:
+    if GameIsDone:
         if PlayAgain() == "y" or "yes":
             guessed_correctly=0
             random_word=words[randint(0,2)]
