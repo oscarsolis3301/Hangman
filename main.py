@@ -50,6 +50,8 @@ def PlayAgain():
     return play_again.lower
 
 guesses=[]
+
+# MAIN GAME LOOP
 while True:
     guessed_word=''
     correct_answer = False
